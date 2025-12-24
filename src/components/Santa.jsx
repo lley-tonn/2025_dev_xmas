@@ -5,24 +5,34 @@ const Santa = () => {
   return (
     <motion.div
       className="santa-container"
-      initial={{ x: 200, opacity: 0 }}
+      initial={{ x: 200, opacity: 0, scale: 0.8 }}
       animate={{
         x: 0,
         opacity: 1,
-        y: [0, -8, 0]
+        scale: 1,
+        y: [0, -6, -3, -8, 0],
+        rotate: [0, -1, 0, 1, 0]
       }}
       transition={{
-        x: { duration: 1.5, delay: 2 },
-        opacity: { duration: 1.5, delay: 2 },
-        y: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 3.5 }
+        x: { duration: 2, delay: 1.8, type: "spring", stiffness: 60 },
+        opacity: { duration: 1.5, delay: 1.8 },
+        scale: { duration: 1.5, delay: 1.8, type: "spring", stiffness: 100 },
+        y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 3.5 },
+        rotate: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 3.8 }
       }}
     >
       <div className="santa-body">
         {/* Hat */}
         <motion.div
           className="santa-hat"
-          animate={{ rotate: [-3, 3, -3] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          animate={{
+            rotate: [-2, 3, -1, 2, -2],
+            y: [0, -1, 0, -0.5, 0]
+          }}
+          transition={{
+            rotate: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+            y: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+          }}
         >
           <div className="santa-hat-top"></div>
           <div className="santa-hat-pompom"></div>
@@ -82,8 +92,14 @@ const Santa = () => {
         {/* Arms - Waving */}
         <motion.div
           className="santa-arm santa-arm-left"
-          animate={{ rotate: [0, 25, 0, 25, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+          animate={{
+            rotate: [0, 20, 35, 25, 15, 30, 10, 0],
+            y: [0, -2, -5, -3, -4, -2, -1, 0]
+          }}
+          transition={{
+            rotate: { duration: 2.5, repeat: Infinity, ease: "easeOut", delay: 4 },
+            y: { duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 4 }
+          }}
         >
           <div className="santa-hand"></div>
         </motion.div>
@@ -109,16 +125,18 @@ const Santa = () => {
       {/* Ho Ho Ho text */}
       <motion.div
         className="ho-ho-ho"
-        initial={{ opacity: 0, scale: 0 }}
+        initial={{ opacity: 0, scale: 0, y: 0 }}
         animate={{
-          opacity: [0, 1, 1, 0],
-          scale: [0, 1.2, 1.2, 0]
+          opacity: [0, 0, 1, 1, 1, 0],
+          scale: [0, 0.8, 1, 1.1, 1, 0.8],
+          y: [0, -5, -10, -12, -10, -5]
         }}
         transition={{
-          duration: 3,
+          duration: 3.5,
           repeat: Infinity,
-          repeatDelay: 4,
-          delay: 5
+          repeatDelay: 5,
+          delay: 6,
+          ease: "easeOut"
         }}
       >
         Ho Ho Ho!

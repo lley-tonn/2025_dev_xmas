@@ -7,9 +7,19 @@ const Elves = () => {
       {/* Left Elf - Waving */}
       <motion.div
         className="elf elf-left"
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
+        initial={{ x: -100, opacity: 0, scale: 0.8 }}
+        animate={{
+          x: 0,
+          opacity: 1,
+          scale: 1,
+          y: [0, -3, 0, -2, 0]
+        }}
+        transition={{
+          x: { duration: 1.5, delay: 1.2, type: "spring", stiffness: 80 },
+          opacity: { duration: 1.2, delay: 1.2 },
+          scale: { duration: 1.5, delay: 1.2, type: "spring", stiffness: 100 },
+          y: { duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 3 }
+        }}
       >
         <div className="elf-body">
           {/* Hat */}
@@ -44,10 +54,20 @@ const Elves = () => {
           {/* Arms - Waving */}
           <motion.div
             className="elf-arm elf-arm-left"
-            animate={{ rotate: [0, -30, 0, -30, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            animate={{
+              rotate: [0, -25, -35, -20, -30, 0],
+              y: [0, -2, -4, -3, -2, 0]
+            }}
+            transition={{
+              rotate: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 3.5 },
+              y: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 3.5 }
+            }}
           />
-          <div className="elf-arm elf-arm-right" />
+          <motion.div
+            className="elf-arm elf-arm-right"
+            animate={{ rotate: [0, 2, -2, 0] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          />
 
           {/* Legs */}
           <div className="elf-legs">
@@ -60,16 +80,20 @@ const Elves = () => {
       {/* Right Elf - Bouncing */}
       <motion.div
         className="elf elf-right"
-        initial={{ x: 100, opacity: 0 }}
+        initial={{ x: 100, opacity: 0, scale: 0.8 }}
         animate={{
           x: 0,
           opacity: 1,
-          y: [0, -10, 0]
+          scale: [1, 1.02, 1],
+          y: [0, -12, -6, -10, 0],
+          rotate: [0, -1, 0, 1, 0]
         }}
         transition={{
-          x: { duration: 1, delay: 1.7 },
-          opacity: { duration: 1, delay: 1.7 },
-          y: { duration: 0.6, repeat: Infinity, ease: "easeInOut", delay: 2.7 }
+          x: { duration: 1.5, delay: 1.4, type: "spring", stiffness: 80 },
+          opacity: { duration: 1.2, delay: 1.4 },
+          scale: { duration: 1, repeat: Infinity, ease: "easeInOut", delay: 3.2 },
+          y: { duration: 1, repeat: Infinity, ease: "easeOut", delay: 3.2 },
+          rotate: { duration: 1, repeat: Infinity, ease: "easeInOut", delay: 3.2 }
         }}
       >
         <div className="elf-body">
@@ -107,8 +131,32 @@ const Elves = () => {
           </div>
 
           {/* Arms */}
-          <div className="elf-arm elf-arm-left" />
-          <div className="elf-arm elf-arm-right" />
+          <motion.div
+            className="elf-arm elf-arm-left"
+            animate={{
+              rotate: [0, -5, 5, 0],
+              y: [0, -1, 1, 0]
+            }}
+            transition={{
+              duration: 1,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 3.2
+            }}
+          />
+          <motion.div
+            className="elf-arm elf-arm-right"
+            animate={{
+              rotate: [0, 5, -5, 0],
+              y: [0, 1, -1, 0]
+            }}
+            transition={{
+              duration: 1,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 3.2
+            }}
+          />
 
           {/* Legs */}
           <div className="elf-legs">

@@ -30,82 +30,72 @@ function App() {
     <div className="app">
       <Snowfall intensity={snowIntensity} />
 
-      <div className="content">
-        <motion.div
-          className="greeting-container"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
+      <motion.div
+        className="greeting-container"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 100 }}
+      >
+        <motion.h1
+          className="main-title"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{
+            duration: 1,
+            delay: 0.5,
+            type: "spring",
+            stiffness: 150
+          }}
         >
-          <motion.h1
-            className="main-title"
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            transition={{
-              duration: 0.8,
-              delay: 0.5,
-              type: "spring",
-              stiffness: 200
-            }}
-          >
-            Merry Christmas to my friends and family 🎄✨
-          </motion.h1>
+          Merry Christmas to my friends and family 🎄✨
+        </motion.h1>
 
-          <motion.p
-            className="subtitle"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-          >
-            Wishing you love, peace, and happiness this season.
-          </motion.p>
-        </motion.div>
+        <motion.p
+          className="subtitle"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.8 }}
+        >
+          Wishing you love, peace, and happiness this season.
+        </motion.p>
 
         {showCountdown && <Countdown />}
+      </motion.div>
 
-        <div className="scene">
-          <ChristmasTree />
-          <Elves />
-          <Santa />
-        </div>
+      <div className="scene">
+        <ChristmasTree />
+        <Elves />
+        <Santa />
+      </div>
 
-        <div className="controls">
-          <MusicPlayer />
+      <div className="controls">
+        <MusicPlayer />
 
-          <motion.div
-            className="snow-control"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2 }}
+        <motion.div
+          className="control-buttons"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5 }}
+        >
+          <button
+            className={`control-btn ${snowIntensity === 'heavy' ? 'active' : ''}`}
+            onClick={() => setSnowIntensity('heavy')}
           >
-            <button
-              className={`snow-btn ${snowIntensity === 'heavy' ? 'active' : ''}`}
-              onClick={() => setSnowIntensity('heavy')}
-            >
-              ❄️ Heavy Snow
-            </button>
-            <button
-              className={`snow-btn ${snowIntensity === 'minimal' ? 'active' : ''}`}
-              onClick={() => setSnowIntensity('minimal')}
-            >
-              ❄ Light Snow
-            </button>
-          </motion.div>
-
-          <motion.div
-            className="mode-control"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.2 }}
+            ❄️
+          </button>
+          <button
+            className={`control-btn ${snowIntensity === 'minimal' ? 'active' : ''}`}
+            onClick={() => setSnowIntensity('minimal')}
           >
-            <button
-              className="mode-btn"
-              onClick={() => setShowCountdown(!showCountdown)}
-            >
-              {showCountdown ? '🎄 Christmas Mode' : '🎉 New Year Countdown'}
-            </button>
-          </motion.div>
-        </div>
+            ❄
+          </button>
+          <button
+            className="control-btn"
+            onClick={() => setShowCountdown(!showCountdown)}
+          >
+            {showCountdown ? '🎄' : '🎉'}
+          </button>
+        </motion.div>
       </div>
 
       <Footer />
