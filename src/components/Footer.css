@@ -1,0 +1,26 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  text-align: center;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.footer-text {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.15);
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .footer-text {
+    font-size: 0.65rem;
+  }
+}

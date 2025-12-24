@@ -1,0 +1,340 @@
+.santa-container {
+  position: absolute;
+  right: 15%;
+  bottom: 50px;
+  z-index: 6;
+}
+
+.santa-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Hat */
+.santa-hat {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 50px solid #c41e3a;
+  margin-bottom: -8px;
+  z-index: 10;
+  transform-origin: bottom center;
+}
+
+.santa-hat-top {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 12px;
+  background: white;
+  border-radius: 8px;
+}
+
+.santa-hat-pompom {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Head */
+.santa-head {
+  position: relative;
+  width: 65px;
+  height: 70px;
+  background: #fdbcb4;
+  border-radius: 50% 50% 40% 40%;
+  z-index: 5;
+}
+
+.santa-eyes {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+}
+
+.santa-eye {
+  width: 10px;
+  height: 10px;
+  background: #2d3436;
+  border-radius: 50%;
+}
+
+.santa-nose {
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: #ff4757;
+  border-radius: 50%;
+  box-shadow: inset -3px -3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Beard */
+.santa-beard {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 45px;
+  background: white;
+  border-radius: 0 0 50% 50%;
+  z-index: 3;
+}
+
+.beard-curl {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+}
+
+.beard-curl-left {
+  left: -8px;
+  bottom: 10px;
+}
+
+.beard-curl-right {
+  right: -8px;
+  bottom: 10px;
+}
+
+/* Mustache */
+.santa-mustache {
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 4;
+}
+
+.mustache-left,
+.mustache-right {
+  width: 18px;
+  height: 12px;
+  background: white;
+  border-radius: 50% 50% 0 60%;
+}
+
+.mustache-right {
+  transform: scaleX(-1);
+}
+
+.santa-mouth {
+  position: absolute;
+  top: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 8px;
+  background: #2d3436;
+  border-radius: 50%;
+  z-index: 4;
+}
+
+/* Body/Torso */
+.santa-torso {
+  width: 75px;
+  height: 90px;
+  background: #c41e3a;
+  border-radius: 15px 15px 8px 8px;
+  position: relative;
+  margin-top: -15px;
+  z-index: 2;
+}
+
+.santa-buttons {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.santa-button {
+  width: 10px;
+  height: 10px;
+  background: #2d3436;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.santa-belt {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background: #2d3436;
+  border-top: 3px solid #ffd700;
+  border-bottom: 3px solid #ffd700;
+}
+
+.belt-buckle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: #ffd700;
+  border: 3px solid #2d3436;
+  border-radius: 4px;
+}
+
+.belt-buckle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: #2d3436;
+  border-radius: 2px;
+}
+
+/* Arms */
+.santa-arm {
+  position: absolute;
+  width: 18px;
+  height: 55px;
+  background: #c41e3a;
+  border-radius: 9px;
+  top: 55px;
+}
+
+.santa-arm-left {
+  left: -12px;
+  transform-origin: top center;
+}
+
+.santa-arm-right {
+  right: -12px;
+}
+
+.santa-hand {
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: #fdbcb4;
+  border-radius: 50%;
+}
+
+.santa-hand-bag {
+  cursor: pointer;
+}
+
+.gift-bag {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+}
+
+/* Legs */
+.santa-legs {
+  display: flex;
+  gap: 12px;
+  margin-top: -8px;
+}
+
+.santa-leg {
+  width: 22px;
+  height: 40px;
+  background: #c41e3a;
+  border-radius: 8px;
+}
+
+.santa-boot {
+  position: relative;
+  margin-top: 35px;
+  width: 28px;
+  height: 18px;
+  background: #2d3436;
+  border-radius: 0 12px 8px 0;
+  margin-left: -3px;
+}
+
+.santa-boot::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: white;
+  border-radius: 3px;
+}
+
+/* Ho Ho Ho */
+.ho-ho-ho {
+  position: absolute;
+  top: -40px;
+  left: -60px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #c41e3a;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+               0 2px 5px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .santa-container {
+    right: 8%;
+  }
+
+  .santa-body {
+    transform: scale(0.85);
+  }
+
+  .ho-ho-ho {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .santa-container {
+    right: 5%;
+    bottom: 30px;
+  }
+
+  .santa-body {
+    transform: scale(0.65);
+  }
+
+  .ho-ho-ho {
+    font-size: 0.9rem;
+    left: -50px;
+  }
+}
